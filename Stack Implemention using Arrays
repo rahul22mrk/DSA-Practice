@@ -1,0 +1,105 @@
+/******************************************************************************
+Stack Implemention using Arrays
+*******************************************************************************/
+public class Main
+{
+	public static void main(String[] args) {
+    Stack st=new Stack();
+	st.push(5);
+	st.push(10);
+	System.out.println("The top element of the Stack is "+st.top());
+	System.out.println("The size of the Stack is "+st.size());
+	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    st.push(15);
+     System.out.println("The size of the Stack is "+st.size());
+    st.push(20);
+     System.out.println("The size of the Stack is "+st.size());
+    st.push(25);
+     System.out.println("The size of the Stack is "+st.size());
+    st.push(30);
+     System.out.println("The size of the Stack is "+st.size());
+    st.push(35);
+     System.out.println("The size of the Stack is "+st.size());
+    System.out.println("The top element of the Stack is "+st.top());
+	System.out.println("The size of the Stack is "+st.size());
+	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    	System.out.println("The popped element of the Stack is "+st.pop());
+    System.out.println("The size of the Stack is "+st.size());
+    
+		
+	}
+	
+}
+
+class Stack{
+    int size,top;
+    int st[];
+    
+    public Stack()
+    {
+        size=5;
+        top=-1;
+        st=new int[size];
+    }
+    
+     public Stack(int size)
+    {
+        this.size=size;
+        top=-1;
+        st=new int[size];
+    }
+    
+    public void push(int newElement)
+    {
+        if(top+1==size)
+        {
+            System.out.println("Stack is overFlow\nExiting...");
+            System.exit(1);
+        }
+        st[++top]=newElement;
+        System.out.println("Pushed element is "+newElement);
+    }
+    
+    public int pop(){
+        if(top==-1)
+        {
+           System.out.println("Stack is underflow\nExiting...");
+            System.exit(1);  
+        }
+        
+        int popped=st[top--];
+        return popped;
+    }
+    
+    public int top()
+    {
+        if(top==-1)
+        {
+            System.out.println("Stack is Empty");
+            System.exit(1);
+        }
+        return st[top];
+        
+    }
+    
+    public int size()
+    {
+        return top+1;
+    }
+}
