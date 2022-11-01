@@ -1,3 +1,11 @@
+code: https://p.ip.fi/Tyt0
+
+//Tree Construct
+//Display Tree (Pre Order)
+//Sum of tree data
+//max of tree data
+//height of tree
+//size of tree (edge)
 
 import java.util.*;
 
@@ -43,26 +51,16 @@ public class Main
 	        st.pop();
 	    }
 	}
-//	Main m=new Main();
-	display(root);
+    TreeOperation tree=new TreeOperation();
+    System.out.println("*************************Tree's Data here******************************************");
+	tree.display(root);
+	System.out.println("Size of tree is"+tree.size(root));
+	System.out.println("sum of tree's Data is"+tree.sum(root));
+	System.out.println("max of tree's Data is"+tree.max(root));
+	System.out.println("Height of tree is"+tree.height(root));
 	}
 	
-	public  static void display(Node node)
-	{
-	    if(node==null)
-	    {
-	        return ;
-	    }
-	    String  str="";
-	    str+= node.left==null?".":node.left.data+" ";
-	    str+="<-"+node.data+"->";
-	    str+=node.right==null?".":node.right.data+"";
-	    System.out.println(str);
-	    
-	    display(node.left);
-	    display(node.right);
-	    
-	}
+	
 }
 class Node{
     Node left;
@@ -85,4 +83,74 @@ class Pair{
         this.node=node;
         this.state=state;
     }
+}
+
+class TreeOperation{
+    public   void display(Node node)
+	{
+	    if(node==null)
+	    {
+	        return ;
+	    }
+	    String  str="";
+	    str+= node.left==null?".":node.left.data+" ";
+	    str+="<-"+node.data+"->";
+	    str+=node.right==null?".":node.right.data+"";
+	    System.out.println(str);
+	    
+	    display(node.left);
+	    display(node.right);
+	    
+	}
+	
+	public int size(Node node)
+	{
+	    if(node==null)
+	    return 0;
+	    
+	    int leftSize=size(node.left);
+	    int rightSize=size(node.right);
+	    int totalSize=leftSize+rightSize+1;
+	    return totalSize;
+	    
+	}
+	
+	public int sum(Node node)
+	{
+	    if(node==null)
+	    {
+	        return 0;
+	    }
+	    
+	    int leftSum=sum(node.left);
+	    int rightSum=sum(node.right);
+	    int totalSum=leftSum+rightSum+node.data;
+	    return totalSum;
+	}
+	
+	public int max(Node node)
+	{
+	    if(node==null)
+	    {
+	        return Integer.MIN_VALUE;
+	    }
+	    
+	    int leftMax=max(node.left);
+	    int rightMax=max(node.right);
+	    int finalMax=Math.max(node.data,Math.max(leftMax,rightMax));
+	    return finalMax;
+	}
+	
+	public int height(Node node)
+	{
+	    if(node==null)
+	    {
+	        return -1;
+	    }
+	    int leftHeight=height(node.left);
+	    int rightHeight=height(node.right);
+	    int treeHeight= Math.max(leftHeight,rightHeight)+1;
+	    return treeHeight;
+	}
+     
 }
