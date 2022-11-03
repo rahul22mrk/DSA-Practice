@@ -1,0 +1,32 @@
+class Solution {
+    public List<List<Integer>> levelOrder(TreeNode root) {
+        List<List<Integer>> result=new ArrayList<List<Integer>>();
+        Queue<TreeNode>queue=new LinkedList<>();
+        if(root==null)
+        {
+            return result;
+        }
+        queue.offer(root);
+        while(!queue.isEmpty())
+        {
+            int countNode=queue.size();
+            List<Integer>sublist=new ArrayList<>();
+        
+            for(int i=0;i<countNode;i++)
+            {
+                root=queue.poll();
+                sublist.add(root.val);
+                if(root.left!=null)
+                {
+                    queue.offer(root.left);
+                }
+                if(root.right!=null)
+                {
+                    queue.offer(root.right);
+                }
+            }
+            result.add(sublist);
+        }
+        return result;
+    }
+}
